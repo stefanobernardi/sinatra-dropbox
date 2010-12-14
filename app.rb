@@ -14,7 +14,7 @@ enable :sessions
       session[:dropbox_session] = dropbox_session.serialize # re-serialize the authenticated session
       redirect '/upload'
     else
-      dropbox_session = Dropbox::Session.new('3o1zydaxhupt4nt', '8efl5wro1idx2wi')
+      dropbox_session = Dropbox::Session.new('key', 'secret')
       session[:dropbox_session] = dropbox_session.serialize
       redirect dropbox_session.authorize_url(:oauth_callback => 'http://localhost:9393')
     end
@@ -25,8 +25,8 @@ enable :sessions
    dropbox_session = Dropbox::Session.deserialize(session[:dropbox_session])
    dropbox_session.mode = :dropbox
    redirect '/' unless dropbox_session.authorized?
-   dropbox_session.upload 'testfile.txt', 'SaveMyInbox'
-   uploaded_file = dropbox_session.file 'SaveMyInbox/testfile.txt'
+   dropbox_session.upload 'testfile.txt', 'Folder'
+   uploaded_file = dropbox_session.file 'Folder/testfile.txt'
    'This is the metadata: ' + uploaded_file.metadata.size
   end
 
