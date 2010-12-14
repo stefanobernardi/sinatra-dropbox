@@ -4,8 +4,8 @@ require 'dropbox'
 
 enable :sessions
 
-# Tutorial by Example, Rails Edition
-# A simple Rails controller that allows a user to first authorize their Dropbox account, and then upload a file to their Dropbox.
+# Tutorial by Example, Sinatra Edition
+# A simple app that allows a user to first authorize their Dropbox account, and then upload a file to their Dropbox.
 
   get '/' do
     if params[:oauth_token] then
