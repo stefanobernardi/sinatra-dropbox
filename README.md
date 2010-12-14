@@ -1,4 +1,4 @@
-##Sinatra-Dropbox
+## Sinatra-Dropbox
 
 A very simple Sinatra app that integrates with the Dropbox API.
 
